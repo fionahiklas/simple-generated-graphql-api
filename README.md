@@ -1,0 +1,1 @@
+# simple-generated-graphql-api
