@@ -10,14 +10,19 @@ import (
 	"simple-generated-graphql-api/graph/model"
 )
 
-// CreateTodo is the resolver for the createTodo field.
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: CreateTodo - createTodo"))
+// CreateHome is the resolver for the createHome field.
+func (r *mutationResolver) CreateHome(ctx context.Context, input model.NewHome) (*model.Home, error) {
+	panic(fmt.Errorf("not implemented: CreateHome - createHome"))
 }
 
-// Todos is the resolver for the todos field.
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: Todos - todos"))
+// Homes is the resolver for the homes field.
+func (r *queryResolver) Homes(ctx context.Context) ([]*model.Home, error) {
+	panic(fmt.Errorf("not implemented: Homes - homes"))
+}
+
+// Home is the resolver for the home field.
+func (r *queryResolver) Home(ctx context.Context, input string) (*model.Home, error) {
+	panic(fmt.Errorf("not implemented: Home - home"))
 }
 
 // Mutation returns generated.MutationResolver implementation.

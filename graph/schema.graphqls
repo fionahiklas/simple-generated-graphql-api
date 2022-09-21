@@ -2,27 +2,36 @@
 #
 # https://gqlgen.com/getting-started/
 
-type Todo {
-  id: ID!
-  text: String!
-  done: Boolean!
-  user: User!
-}
-
-type User {
+type Sensor {
   id: ID!
   name: String!
+  description: String
+}
+
+type AlarmSystem {
+  id: ID!
+  name: String!
+  description: String
+  sensors: [ Sensor! ]!
+}
+
+type Home {
+  id: ID!
+  name: String!
+  description: String
+  alarmSystem: AlarmSystem
 }
 
 type Query {
-  todos: [Todo!]!
+  homes: [Home!]!
+  home(input: ID!): Home
 }
 
-input NewTodo {
-  text: String!
-  userId: String!
+input NewHome {
+  name: String!
+  description: String
 }
 
 type Mutation {
-  createTodo(input: NewTodo!): Todo!
+  createHome(input: NewHome!): Home!
 }
