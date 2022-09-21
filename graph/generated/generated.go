@@ -278,12 +278,16 @@ var sources = []*ast.Source{
 #
 # https://gqlgen.com/getting-started/
 
+# Sensors are used to feed events to the alarm system
+# they will eventually have more details
 type Sensor {
   id: ID!
   name: String!
   description: String
 }
 
+# An alarm system consists of sensors
+# TODO: Add alarm type and field
 type AlarmSystem {
   id: ID!
   name: String!
@@ -291,6 +295,7 @@ type AlarmSystem {
   sensors: [ Sensor! ]!
 }
 
+# Homes only have, for now, zero or one alarm system
 type Home {
   id: ID!
   name: String!
@@ -299,7 +304,10 @@ type Home {
 }
 
 type Query {
+  # Get a list of all known homes
   homes: [Home!]!
+
+  # Single home
   home(input: ID!): Home
 }
 
@@ -308,7 +316,9 @@ input NewHome {
   description: String
 }
 
+# TODO: Need to add creation of alarm, sensors
 type Mutation {
+  # Create a new home
   createHome(input: NewHome!): Home!
 }
 `, BuiltIn: false},
